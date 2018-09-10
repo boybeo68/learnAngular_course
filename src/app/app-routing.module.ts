@@ -12,6 +12,10 @@ const routes: Routes = [
     loadChildren: './orders/orders.module#OrdersModule',
   },
   {
+    path: 'login',
+    loadChildren: './login/login.module#LoginModule',
+  },
+  {
     path: '',
     redirectTo: '/course',
     pathMatch: 'full'

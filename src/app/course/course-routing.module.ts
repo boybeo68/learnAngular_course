@@ -13,7 +13,7 @@ const appRoute: Routes = [
     component: HomeComponent,
   },
   {
-    path: 'counseling',
+    path: 'list',
     component: CoursesComponent,
     children: [{
       path: '',

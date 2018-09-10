@@ -19,7 +19,7 @@ export class CourseAddComponent implements OnInit {
   }
   onAddContent() {
     this.subcription = this.Courseservice.postCourse(this.course).subscribe(data => {
-      this.router.navigateByUrl('course/counseling');
+      this.router.navigateByUrl('course/list');
     }, err => {
       this.Courseservice.handlerErr(err);
     });

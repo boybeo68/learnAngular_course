@@ -1,11 +1,27 @@
 <div class="card mt-5">
   <div class="card-block text-xs-left|center|right">
     <h4 class="card-title text-center bg-primary text-white p-2">Course List</h4>
-    <div class="row">
-      <div class="col-sm-3"><button type="button" class="btn btn-success ml-3 btn-block" routerLink="/course/counseling/add">Add Course</button></div>
-      <div class="col-sm-3">    <div class="form-group">
-        <input  type="text" class="form-control" placeholder="Search" [(ngModel)]="nameSearch" (keyup.enter)="onSearch()">
-      </div></div>
+    <div class="row justify-content-between">
+      <div class="col-sm-3">
+        <button type="button" class="btn btn-success ml-3 btn-block" routerLink="/course/list/add">Add Course</button>
+      </div>
+      <div class="input-group mb-3 col-sm-4">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01">Filler</label>
+        </div>
+        <select class="custom-select" id="inputGroupSelect01">
+          <option selected>Choose...</option>
+          <option value="1">Price increases</option>
+          <option value="2">Price decreases</option>
+          <option value="3">Price Free</option>
+        </select>
+      </div>
+      <div class="col-sm-5 row justify-content-center">
+        <div class="form-group ">
+          <input type="text" class="form-control" placeholder="Search name course" [(ngModel)]="nameSearch"
+                 (keyup.enter)="onSearch()">
+        </div>
+      </div>
     </div>
 
 
@@ -26,11 +42,11 @@
           <td>{{i + 1}}</td>
           <td>{{course.name}}</td>
           <td>{{course.decription}}</td>
-          <td [style.color] = "course.fee > 0 ? 'blue' : 'red'">{{course.fee > 0 ? (course.fee | currency) : 'Free'}}</td>
+          <td [style.color]="course.fee > 0 ? 'blue' : 'red'">{{course.fee > 0 ? (course.fee | currency) : 'Free'}}</td>
           <td>{{course.createdAt | date}}</td>
           <td>
             <button type="button" name="" id=""
-                    class="btn btn-primary btn-block" routerLink='/course/counseling/{{course.id}}/edit'> Edit
+                    class="btn btn-primary btn-block" routerLink='/course/list/{{course.id}}/edit'> Edit
             </button>
             <button type="button" class="btn btn-danger btn-block" (click)="deleteCourse(course.id)">Delete</button>
           </td>
