@@ -28,7 +28,7 @@ export class CourseEditComponent implements OnInit {
 
   onEdit() {
     this.subcription = this.courseService.updateCourse(this.course).subscribe( data => {
-      this.router.navigateByUrl('course/counseling');
+      this.router.navigateByUrl('course/list');
     }, err => {
       this.courseService.handlerErr(err);
     });
