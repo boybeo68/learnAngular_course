@@ -9,11 +9,11 @@
         <div class="input-group-prepend">
           <label class="input-group-text" for="inputGroupSelect01">Filler</label>
         </div>
-        <select class="custom-select" id="inputGroupSelect01">
-          <option selected>Choose...</option>
-          <option value="1">Price increases</option>
-          <option value="2">Price decreases</option>
-          <option value="3">Price Free</option>
+        <select class="custom-select" id="inputGroupSelect01" [(ngModel)] = "priceFilter" (change)="oncheckChange()" >
+
+          <option value="Chose">Chose....</option>
+          <option value="increases">Price increases</option>
+          <option value="decreases">Price decreases</option>
         </select>
       </div>
       <div class="col-sm-5 row justify-content-center">

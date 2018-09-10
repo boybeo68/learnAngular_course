@@ -1,1 +1,11 @@
-<img src="../../../../assets/background.jpg" class="background" height="1080" width="1920"/>
+<!--<img src="../../../../assets/background.jpg" class="background" height="1080" width="1920"/>-->
+<div class="home">
+  <span *ngIf="err === -1" class="label label-danger">Vui lòng nhập lại key</span>
+  <div class="form-group">
+    <label for="">Nhập key truy cập trang (key 123456)</label>
+    <input
+      type="text"
+      name="" id="" class="form-control" placeholder="" aria-describedby="helpId" #key (keyup.enter)="onKeyInput(key.value)">
+  </div>
+</div>
+

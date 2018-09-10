@@ -3,24 +3,43 @@
     <div class="card mt-5">
       <div class="card-block">
         <h4 class="text-center bg-primary text-white p-2">Add course</h4>
-        <div class="card-body">
+        <form [formGroup]="frmCourse" class="card-body" (ngSubmit)="onSubmitForm()">
           <div class="form-group">
             <label for="">name</label>
-            <input
-              type="text" class="form-control" placeholder="" aria-describedby="helpId" [(ngModel)]="course.name">
+            <input autocomplete="false"
+              type="text" class="form-control" name="txtName" placeholder="" aria-describedby="helpId"
+              formControlName="name"
+              [(ngModel)]="course.name">
+            <span *ngIf="frmCourse.controls['name'].dirty && frmCourse.controls['name'].errors?.required" class="label text-danger">Vui lòng nhập name !</span>
+            <span *ngIf="frmCourse.controls['name'].dirty && frmCourse.controls['name'].errors?.maxlength" class="label text-danger">Nhập tối đa 20 ký tự!</span>
+            <span *ngIf="frmCourse.controls['name'].dirty && frmCourse.controls['name'].errors?.minlength" class="label text-danger">Nhập tối thiểu 5 ký tự !</span>
           </div>
           <div class="form-group">
             <label for="">decription</label>
             <input
-              type="text" class="form-control" placeholder="" aria-describedby="helpId" [(ngModel)]="course.decription">
+              type="text" class="form-control" name="txtDescription" placeholder="" aria-describedby="helpId"
+              formControlName="description"
+              [(ngModel)]="course.decription">
+            <span *ngIf="frmCourse.controls['description'].dirty && frmCourse.controls['description'].errors?.required" class="label text-danger">Vui lòng nhập description !</span>
+            <span *ngIf="frmCourse.controls['description'].dirty && frmCourse.controls['description'].errors?.maxlength" class="label text-danger">Nhập tối đa 50 ký tự!</span>
+            <span *ngIf="frmCourse.controls['description'].dirty && frmCourse.controls['description'].errors?.minlength" class="label text-danger">Nhập tối thiểu 3 ký tự !</span>
           </div>
           <div class="form-group">
             <label for="">Price</label>
             <input
-              type="number" class="form-control" placeholder="" aria-describedby="helpId" [(ngModel)]="course.fee">
+              type="number" class="form-control" name="txtPrice" placeholder="" aria-describedby="helpId"
+              formControlName="price"
+              [(ngModel)]="course.fee">
+            <span *ngIf="frmCourse.controls['price'].dirty && frmCourse.controls['price'].errors?.required" class="label text-danger">Vui lòng nhập price !</span>
           </div>
-        </div>
-        <a name="" id="" class="btn btn-success btn-block" role="button" (click)="onAddContent()">Submit</a>
+          <div class="row justify-content-sm-center">
+            <button [disabled]="frmCourse.invalid" type="submit" class="btn btn-success " role="button">Add</button>
+            <button class="btn btn-warning ml-2" role="button" (click)="onResetForm()">Reset</button>
+            <button class="btn btn-danger ml-2" role="button" (click)="onBack()">Back</button>
+          </div>
+        </form>
+
+
       </div>
     </div>
   </div>

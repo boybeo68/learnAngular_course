@@ -6,14 +6,18 @@ import {CoursesComponent} from './component/courses/courses.component';
 import {CourseListComponent} from './component/course-list/course-list.component';
 import {CourseEditComponent} from './component/course-edit/course-edit.component';
 import {CourseAddComponent} from './component/course-add/course-add.component';
+import {AuthGuardGuard} from './services/guards/auth-guard.guard';
+import {DeactiveGuard} from './services/guards/deactive.guard';
 
 const appRoute: Routes = [
   {
     path: '',
     component: HomeComponent,
+    canDeactivate: [DeactiveGuard]
   },
   {
     path: 'list',
+    canActivate: [AuthGuardGuard],
     component: CoursesComponent,
     children: [{
       path: '',

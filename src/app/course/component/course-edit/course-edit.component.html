@@ -3,24 +3,37 @@
     <div class="card mt-5">
       <div class="card-block">
         <h4 class="text-center bg-primary text-white p-2">Edit course</h4>
-        <div class="card-body">
+        <form [formGroup]="frmEditConetnt" class="card-body" (ngSubmit)="onEdit()">
           <div class="form-group">
             <label for="">name</label>
             <input
-              type="text" class="form-control" placeholder="" aria-describedby="helpId" [(ngModel)]="course.name">
+              type="text" class="form-control" placeholder="" aria-describedby="helpId" [(ngModel)]="course.name"
+              formControlName="name"
+            >
+            <app-err-validate  [control] = "frmEditConetnt.controls['name']"></app-err-validate>
           </div>
           <div class="form-group">
             <label for="">decription</label>
             <input
-              type="text" class="form-control" placeholder="" aria-describedby="helpId" [(ngModel)]="course.decription">
+              type="text" class="form-control" placeholder="" aria-describedby="helpId"
+              formControlName="description"
+              [(ngModel)]="course.decription">
+            <app-err-validate [control] = "frmEditConetnt.controls['description']"></app-err-validate>
           </div>
           <div class="form-group">
             <label for="">Price</label>
             <input
-              type="text" class="form-control" placeholder="" aria-describedby="helpId" [(ngModel)]="course.fee">
+              type="text" class="form-control" placeholder="" aria-describedby="helpId"
+              formControlName="price"
+              [(ngModel)]="course.fee">
+            <app-err-validate [control] = "frmEditConetnt.controls['price']"></app-err-validate>
           </div>
-        </div>
-        <a name="" id="" class="btn btn-success btn-block" (click)="onEdit()" role="button">Save</a>
+          <div class="row justify-content-sm-center">
+            <button [disabled]="frmEditConetnt.invalid" type="submit" class="btn btn-success " role="button">Save
+            </button>
+            <button class="btn btn-danger ml-2" role="button" (click)="onBack()">Back</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>

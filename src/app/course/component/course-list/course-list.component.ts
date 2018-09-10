@@ -14,6 +14,7 @@ export class CourseListComponent implements OnInit, OnDestroy {
   public subcription: Subscription;
   private subquerySearch: Subscription;
   public nameSearch = '';
+  public priceFilter = 'Chose';
 
   constructor(private couseService: CourseService, private router: Router, public activateRoute: ActivatedRoute) {
   }
@@ -22,7 +23,6 @@ export class CourseListComponent implements OnInit, OnDestroy {
     this.subquerySearch = this.activateRoute.queryParams.subscribe(resolve => {
       this.subcription = this.couseService.getListCourse().subscribe(data => {
         const name = resolve.name;
-        console.log(name);
         if (name) {
           this.courseList = data.filter(course => {
             return course.name.toLowerCase().indexOf(name.toLowerCase()) !== -1;
@@ -57,5 +57,18 @@ export class CourseListComponent implements OnInit, OnDestroy {
 
   onSearch() {
     this.router.navigate(['course/list'], {queryParams: {name: this.nameSearch ? this.nameSearch : ''}});
+  }
+
+  oncheckChange() {
+    console.log(this.priceFilter);
+    if (this.priceFilter === 'increases') {
+      this.courseList = this.courseList.sort((a, b) => {
+        return (a.fee) - (b.fee);
+      });
+    } else {
+      this.courseList = this.courseList.sort((a, b) => {
+        return (b.fee) - (a.fee);
+      });
+    }
   }
 }
