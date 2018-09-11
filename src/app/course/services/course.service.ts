@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Course} from '../models/course.class';
 import {Observable} from 'rxjs';
 
@@ -32,7 +32,7 @@ export class CourseService {
     return this.http.put<Course>(`${this.APi}/${course.id}`, course);
   }
 
-  handlerErr(err) {
+  handlerErr(err: HttpErrorResponse) {
     if (err.error instanceof Error) {
       console.log(`client error ${err.error.message}`);
     } else {

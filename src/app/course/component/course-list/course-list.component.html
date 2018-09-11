@@ -18,7 +18,7 @@
       </div>
       <div class="col-sm-5 row justify-content-center">
         <div class="form-group ">
-          <input type="text" class="form-control" placeholder="Search name course" [(ngModel)]="nameSearch"
+          <input appValidate type="text" class="form-control" placeholder="Search name course" [(ngModel)]="nameSearch"
                  (keyup.enter)="onSearch()">
         </div>
       </div>
@@ -29,7 +29,7 @@
       <table class="table table-bordered">
         <thead>
         <tr class="text-primary">
-          <th>id</th>
+          <th>serial </th>
           <th>name</th>
           <th>decription</th>
           <th>Price</th>

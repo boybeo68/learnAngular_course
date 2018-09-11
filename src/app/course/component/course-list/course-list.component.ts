@@ -3,6 +3,8 @@ import {Course} from '../../models/course.class';
 import {CourseService} from '../../services/course.service';
 import {Subscription} from 'rxjs';
 import {Router, ActivatedRoute} from '@angular/router';
+import {Ng4LoadingSpinnerService} from 'ng4-loading-spinner';
+
 
 @Component({
   selector: 'app-course-list',
@@ -16,8 +18,9 @@ export class CourseListComponent implements OnInit, OnDestroy {
   public nameSearch = '';
   public priceFilter = 'Chose';
 
-  constructor(private couseService: CourseService, private router: Router, public activateRoute: ActivatedRoute) {
-  }
+  constructor(private couseService: CourseService,
+              private router: Router,
+              public activateRoute: ActivatedRoute) {}
 
   ngOnInit() {
     this.subquerySearch = this.activateRoute.queryParams.subscribe(resolve => {
@@ -30,7 +33,6 @@ export class CourseListComponent implements OnInit, OnDestroy {
         } else {
           this.courseList = data;
         }
-
       }, error1 => {
         this.couseService.handlerErr(error1);
       });

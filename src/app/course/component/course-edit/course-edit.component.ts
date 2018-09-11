@@ -22,7 +22,6 @@ export class CourseEditComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.activeRoute.snapshot.params['id']);
     this.id = this.activeRoute.snapshot.params['id'];
     this.courseService.getCourse(this.id).subscribe(data => {
       this.course = data;

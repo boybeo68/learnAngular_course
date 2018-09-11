@@ -8,19 +8,17 @@ import {CourseListComponent} from './component/course-list/course-list.component
 import {CourseEditComponent} from './component/course-edit/course-edit.component';
 import {CourseAddComponent} from './component/course-add/course-add.component';
 import {CourseRoutingModule} from './course-routing.module';
-import { ErrValidateComponent } from './component/err-validate/err-validate.component';
-
-
+import {ErrValidateComponent} from './component/err-validate/err-validate.component';
+import { ValidateDirective } from './directives/validate.directive';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    CourseRoutingModule
+    CourseRoutingModule,
   ],
-  exports: [
-  ],
+  exports: [],
   declarations: [
     HomeComponent,
     CoursesComponent,
@@ -28,7 +26,9 @@ import { ErrValidateComponent } from './component/err-validate/err-validate.comp
     CourseAddComponent,
     CourseEditComponent,
     ErrValidateComponent,
-  ]
+    ValidateDirective,
+  ],
+  providers: []
 })
 export class CourseModule {
 }

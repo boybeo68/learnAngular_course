@@ -10,7 +10,7 @@
               type="text" class="form-control" placeholder="" aria-describedby="helpId" [(ngModel)]="course.name"
               formControlName="name"
             >
-            <app-err-validate  [control] = "frmEditConetnt.controls['name']"></app-err-validate>
+            <app-err-validate [control]="frmEditConetnt.controls['name']"></app-err-validate>
           </div>
           <div class="form-group">
             <label for="">decription</label>
@@ -18,7 +18,7 @@
               type="text" class="form-control" placeholder="" aria-describedby="helpId"
               formControlName="description"
               [(ngModel)]="course.decription">
-            <app-err-validate [control] = "frmEditConetnt.controls['description']"></app-err-validate>
+            <app-err-validate [control]="frmEditConetnt.controls['description']"></app-err-validate>
           </div>
           <div class="form-group">
             <label for="">Price</label>
@@ -26,7 +26,7 @@
               type="text" class="form-control" placeholder="" aria-describedby="helpId"
               formControlName="price"
               [(ngModel)]="course.fee">
-            <app-err-validate [control] = "frmEditConetnt.controls['price']"></app-err-validate>
+            <app-err-validate [control]="frmEditConetnt.controls['price']"></app-err-validate>
           </div>
           <div class="row justify-content-sm-center">
             <button [disabled]="frmEditConetnt.invalid" type="submit" class="btn btn-success " role="button">Save
