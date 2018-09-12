@@ -3,7 +3,6 @@ import {Course} from '../../models/course.class';
 import {CourseService} from '../../services/course.service';
 import {Subscription} from 'rxjs';
 import {Router, ActivatedRoute} from '@angular/router';
-import {Ng4LoadingSpinnerService} from 'ng4-loading-spinner';
 
 
 @Component({
@@ -17,10 +16,18 @@ export class CourseListComponent implements OnInit, OnDestroy {
   private subquerySearch: Subscription;
   public nameSearch = '';
   public priceFilter = 'Chose';
+  public status = 'false';
+  idSearch;
+  NameSearch;
+  desSearch;
+  priceSearch;
+  dateSearch;
+  statusSearch;
 
   constructor(private couseService: CourseService,
               private router: Router,
-              public activateRoute: ActivatedRoute) {}
+              public activateRoute: ActivatedRoute) {
+  }
 
   ngOnInit() {
     this.subquerySearch = this.activateRoute.queryParams.subscribe(resolve => {
@@ -47,7 +54,6 @@ export class CourseListComponent implements OnInit, OnDestroy {
 
   deleteCourse(id: number) {
     this.couseService.deleteCourse(id).subscribe(data => {
-      console.log(data);
       const index = this.courseList.findIndex(course => {
         return course.id === id;
       });
@@ -59,18 +65,5 @@ export class CourseListComponent implements OnInit, OnDestroy {
 
   onSearch() {
     this.router.navigate(['course/list'], {queryParams: {name: this.nameSearch ? this.nameSearch : ''}});
-  }
-
-  oncheckChange() {
-    console.log(this.priceFilter);
-    if (this.priceFilter === 'increases') {
-      this.courseList = this.courseList.sort((a, b) => {
-        return (a.fee) - (b.fee);
-      });
-    } else {
-      this.courseList = this.courseList.sort((a, b) => {
-        return (b.fee) - (a.fee);
-      });
-    }
   }
 }

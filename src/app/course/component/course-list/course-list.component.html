@@ -9,7 +9,7 @@
         <div class="input-group-prepend">
           <label class="input-group-text" for="inputGroupSelect01">Filler</label>
         </div>
-        <select class="custom-select" id="inputGroupSelect01" [(ngModel)] = "priceFilter" (change)="oncheckChange()" >
+        <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="priceFilter">
 
           <option value="Chose">Chose....</option>
           <option value="increases">Price increases</option>
@@ -18,7 +18,8 @@
       </div>
       <div class="col-sm-5 row justify-content-center">
         <div class="form-group ">
-          <input appValidate type="text" class="form-control" placeholder="Search name course" [(ngModel)]="nameSearch"
+          <input appValidate type="text" class="form-control" placeholder="Search name queryParams"
+                 [(ngModel)]="nameSearch"
                  (keyup.enter)="onSearch()">
         </div>
       </div>
@@ -29,21 +30,68 @@
       <table class="table table-bordered">
         <thead>
         <tr class="text-primary">
-          <th>serial </th>
-          <th>name</th>
-          <th>decription</th>
+          <th>Serial</th>
+          <th>Name</th>
+          <th>Decription</th>
           <th>Price</th>
-          <th>createdAt</th>
+          <th>CreatedAt</th>
+          <th>Status</th>
           <th>Action</th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let course of courseList, let i = index">
-          <td>{{i + 1}}</td>
+        <tr>
+          <td>
+            <div class="form-group">
+              <input type="text" class="form-control" name="" aria-describedby="helpId" placeholder="search id"
+                     [(ngModel)]="idSearch">
+            </div>
+          </td>
+          <td>
+            <div class="form-group">
+              <input type="text" class="form-control" name="" aria-describedby="helpId" placeholder="search name"
+                     [(ngModel)]="NameSearch">
+            </div>
+          </td>
+          <td>
+            <div class="form-group">
+              <input type="text" class="form-control" name="" aria-describedby="helpId" placeholder="search description"
+                     [(ngModel)]="desSearch">
+            </div>
+          </td>
+          <td>
+            <div class="form-group">
+              <input type="text" class="form-control" name="" aria-describedby="helpId" placeholder="search price"
+                     [(ngModel)]="priceSearch">
+            </div>
+          </td>
+          <td>
+            <div class="form-group">
+              <input type="date" class="form-control" name="" aria-describedby="helpId" placeholder="search date"
+                     [(ngModel)]="dateSearch">
+            </div>
+          </td>
+          <td id="marginSelct">
+            <div class="form-group">
+              <select class="form-control" name="" [(ngModel)]="statusSearch">
+                <option value="false">No Active</option>
+                <option value="true">Active</option>
+              </select>
+            </div>
+          </td>
+          <td>
+          </td>
+        </tr>
+        <tr
+          *ngFor="let course of courseList | filerArray : idSearch :NameSearch :desSearch :priceSearch :dateSearch :statusSearch :priceFilter,let i = index">
+          <td>{{course.id}}</td>
           <td>{{course.name}}</td>
-          <td>{{course.decription}}</td>
-          <td [style.color]="course.fee > 0 ? 'blue' : 'red'">{{course.fee > 0 ? (course.fee | currency) : 'Free'}}</td>
-          <td>{{course.createdAt | date}}</td>
+          <td>{{course.decription | fomatString : 15}}</td>
+          <td [style.color]="course.fee > 0 ? 'blue' : 'red'">{{course.fee > 0 ? (course.fee | currency:'VND':'symbol':
+            '1.0-3' ) : 'Free'}}
+          </td>
+          <td>{{course.createdAt | converDate}}</td>
+          <td>{{course.status}}</td>
           <td>
             <button type="button" name="" id=""
                     class="btn btn-primary btn-block" routerLink='/course/list/{{course.id}}/edit'> Edit

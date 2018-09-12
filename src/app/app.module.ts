@@ -6,6 +6,7 @@ import {AppComponent} from './app.component';
 import {CourseInterceptor} from './course/services/course.interceptor';
 import {LoadingInterceptor} from './course/services/loading.interceptor';
 import {Ng4LoadingSpinnerModule} from 'ng4-loading-spinner';
+import {LogingInterceptor} from './course/services/loging.interceptor';
 
 @NgModule({
   declarations: [
@@ -18,13 +19,19 @@ import {Ng4LoadingSpinnerModule} from 'ng4-loading-spinner';
     AppRoutingModule,
 
   ],
-  providers: [{
+  providers: [
+  //   {
+  //   provide: HTTP_INTERCEPTORS,
+  //   useClass: CourseInterceptor,
+  //   multi: true
+  // },
+    {
     provide: HTTP_INTERCEPTORS,
-    useClass: CourseInterceptor,
+    useClass: LoadingInterceptor,
     multi: true
   }, {
     provide: HTTP_INTERCEPTORS,
-    useClass: LoadingInterceptor,
+    useClass: LogingInterceptor,
     multi: true
   }],
   bootstrap: [AppComponent]

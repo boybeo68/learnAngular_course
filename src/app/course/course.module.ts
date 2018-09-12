@@ -10,6 +10,9 @@ import {CourseAddComponent} from './component/course-add/course-add.component';
 import {CourseRoutingModule} from './course-routing.module';
 import {ErrValidateComponent} from './component/err-validate/err-validate.component';
 import { ValidateDirective } from './directives/validate.directive';
+import { FomatStringPipe } from './pipes/fomat-string.pipe';
+import { FilerArrayPipe } from './pipes/filer-array.pipe';
+import { ConverDatePipe } from './pipes/conver-date.pipe';
 
 @NgModule({
   imports: [
@@ -27,6 +30,9 @@ import { ValidateDirective } from './directives/validate.directive';
     CourseEditComponent,
     ErrValidateComponent,
     ValidateDirective,
+    FomatStringPipe,
+    FilerArrayPipe,
+    ConverDatePipe,
   ],
   providers: []
 })
