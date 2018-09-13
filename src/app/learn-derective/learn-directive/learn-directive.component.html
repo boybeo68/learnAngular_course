@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <table class="table table-bordered table-inverse">
+        <thead class="thead-default">
+        <tr>
+          <th>attribute directive</th>
+          <th>structural directive</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td scope="row">
+            <h4 scope="row" appColorDirective>color default directive</h4>
+            <h4 appAttColorCustom cpColorbind="blue"> cpColor Directive Demo using bind- prefix </h4>
+            <h4 appAttEvent defaultValue="black"> cpColor Directive Demo using hostListener </h4>
+            <div class="form-group">
+              <label for="">focus show log Hello</label>
+              <input
+                [(ngModel)]="dataInput"
+                appFocusForm ="tung" datainput="dataInput"
+                type="text"
+                class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+            </div>
+            <form [formGroup]="frmValidate" class="card-body" (ngSubmit)="onSubmitForm()">
+              <div  class="form-group">
+                <label for="">Validate form email</label>
+                <input
+                  formControlName="email"
+                  [(ngModel)]="datavalidate"
+                  appValidateForm
+                  type="text"
+                  class="form-control" name="email" aria-describedby="helpId" placeholder="">
+                <span *ngIf="frmValidate.controls['email'].dirty && frmValidate.controls['email'].errors?.appValidateForm" class="label text-danger">Nhập sai email !</span>
+              </div>
+              <button type="submit" class="btn btn-success "> Gửi</button>
+            </form>
+          <td>
+            <h3>cpIf Directive</h3>
+            <div>
+              <input type="radio" name="rad1" (click)="changeCondition(true)"> True
+              <input type="radio" checked name="rad1" (click)="changeCondition(false)"> False
+            </div>
+            <div *appTungIf="boolean">
+              <p>Hello giá trị true</p>
+            </div>
+            <ng-template [appTungIf]="!boolean">
+              <p>Hello giá trị false</p>
+            </ng-template>
+            <br/>
+            <ul>
+              <li *appStrucLoop="3">đây là dữ liệu lặp</li>
+            </ul>
+          <h3>cpDelay Directive</h3>
+          <div>
+            Show message after
+            <input type="radio" name="rad2" (click)= "showCpDelay= true; delayInSec = 2000"> 2 Seconds
+            <input type="radio" name="rad2" (click)= "showCpDelay= true; delayInSec = 5000"> 5 Seconds
+            <input type="radio" name="rad2" (click)= "showCpDelay= true; delayInSec = 7000"> 7 Seconds
+          </div>
+          <br/>
+          <div *appTungIf="showCpDelay">
+            <div *appDelay="delayInSec">
+              <b> Hello World! </b>
+            </div>
+          </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

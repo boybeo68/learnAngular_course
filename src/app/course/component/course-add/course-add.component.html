@@ -6,13 +6,14 @@
         <form [formGroup]="frmCourse" class="card-body" (ngSubmit)="onSubmitForm()">
           <div class="form-group">
             <label for="">name</label>
-            <input autocomplete="false"
+            <input autocomplete="false" appValidateForm
               type="text" class="form-control" name="txtName" placeholder="" aria-describedby="helpId"
               formControlName="name"
               [(ngModel)]="course.name">
             <span *ngIf="frmCourse.controls['name'].dirty && frmCourse.controls['name'].errors?.required" class="label text-danger">Vui lòng nhập name !</span>
             <span *ngIf="frmCourse.controls['name'].dirty && frmCourse.controls['name'].errors?.maxlength" class="label text-danger">Nhập tối đa 20 ký tự!</span>
             <span *ngIf="frmCourse.controls['name'].dirty && frmCourse.controls['name'].errors?.minlength" class="label text-danger">Nhập tối thiểu 5 ký tự !</span>
+            <span *ngIf="frmCourse.controls['name'].dirty && frmCourse.controls['name'].errors?.appValidateForm" class="label text-danger">Nhập sai email !</span>
           </div>
           <div class="form-group">
             <label for="">decription</label>

@@ -29,7 +29,9 @@ export class LoadingInterceptor implements HttpInterceptor {
         }
       }, error => {
         this.count--;
-        this.spinner.hide();
+        if (this.count === 0) {
+          this.spinner.hide();
+        }
       })
     )
       ;

@@ -22,7 +22,7 @@ export class CourseListComponent implements OnInit, OnDestroy {
   desSearch;
   priceSearch;
   dateSearch;
-  statusSearch;
+  statusSearch = false;
 
   constructor(private couseService: CourseService,
               private router: Router,

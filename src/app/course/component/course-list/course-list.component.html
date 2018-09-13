@@ -35,7 +35,7 @@
           <th>Decription</th>
           <th>Price</th>
           <th>CreatedAt</th>
-          <th>Status</th>
+          <th style="width: 150px; text-align: center">Status</th>
           <th>Action</th>
         </tr>
         </thead>
@@ -67,7 +67,8 @@
           </td>
           <td>
             <div class="form-group">
-              <input type="date" class="form-control" name="" aria-describedby="helpId" placeholder="search date"
+              <input type="date" class="form-control" disabled name="" aria-describedby="helpId"
+                     placeholder="search date"
                      [(ngModel)]="dateSearch">
             </div>
           </td>
@@ -91,9 +92,9 @@
             '1.0-3' ) : 'Free'}}
           </td>
           <td>{{course.createdAt | converDate}}</td>
-          <td>{{course.status}}</td>
+          <td style="text-align: center">{{course.status == true ? 'Active' : 'No Active'}}</td>
           <td>
-            <button type="button" name="" id=""
+            <button type="button"
                     class="btn btn-primary btn-block" routerLink='/course/list/{{course.id}}/edit'> Edit
             </button>
             <button type="button" class="btn btn-danger btn-block" (click)="deleteCourse(course.id)">Delete</button>

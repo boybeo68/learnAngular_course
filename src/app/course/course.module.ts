@@ -9,16 +9,17 @@ import {CourseEditComponent} from './component/course-edit/course-edit.component
 import {CourseAddComponent} from './component/course-add/course-add.component';
 import {CourseRoutingModule} from './course-routing.module';
 import {ErrValidateComponent} from './component/err-validate/err-validate.component';
-import { ValidateDirective } from './directives/validate.directive';
 import { FomatStringPipe } from './pipes/fomat-string.pipe';
 import { FilerArrayPipe } from './pipes/filer-array.pipe';
 import { ConverDatePipe } from './pipes/conver-date.pipe';
+import {ShareModule} from '../share/share.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    ShareModule,
     CourseRoutingModule,
   ],
   exports: [],
@@ -29,7 +30,6 @@ import { ConverDatePipe } from './pipes/conver-date.pipe';
     CourseAddComponent,
     CourseEditComponent,
     ErrValidateComponent,
-    ValidateDirective,
     FomatStringPipe,
     FilerArrayPipe,
     ConverDatePipe,

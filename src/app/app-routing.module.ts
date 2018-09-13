@@ -16,6 +16,10 @@ const routes: Routes = [
     loadChildren: './login/login.module#LoginModule',
   },
   {
+    path: 'directive',
+    loadChildren: './learn-derective/learn-derective.module#LearnDerectiveModule',
+  },
+  {
     path: '',
     redirectTo: '/course',
     pathMatch: 'full'

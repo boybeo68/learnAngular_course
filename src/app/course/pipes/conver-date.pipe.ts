@@ -10,5 +10,4 @@ export class ConverDatePipe implements PipeTransform {
     this.dateConver = moment(value).format('YYYY/MM/DD HH:mm');
     return this.dateConver;
   }
-
 }

@@ -15,9 +15,24 @@
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="/login">Login</a>
       </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/directive">Learn Directive</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Language
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <button (click)="switchLanguage('en')" class="dropdown-item">English</button>
+          <button (click)="switchLanguage('vi')" class="dropdown-item">VietNamese</button>
+        </div>
+      </li>
     </ul>
   </div>
 </nav>
+<h2>
+  {{ 'Intro' | translate:user }}
+</h2>
 <ng4-loading-spinner></ng4-loading-spinner>
 <router-outlet></router-outlet>
 
