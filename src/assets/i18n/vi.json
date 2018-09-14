@@ -1,4 +1,15 @@
 {
   "Title": "Ví dụ về translator",
-  "Intro": "Xin chào tôi là {{name}}, tôi {{age}} tuổi."
+  "Intro": "Bạn có thực sự muốn chuyển đổi ngôn ngữ sang Tiếng Anh",
+  "Home": "Trang chủ",
+  "Course": "Khóa học ",
+  "Login": "Đăng nhập",
+  "Learn Directive": "Học Directive",
+  "Learn Language": "Học ngôn ngữ",
+  "English": "Tiếng Anh",
+  "Language":"Ngôn ngữ",
+  "VietNamese": "Tiếng Việt",
+  "Language title": "Tiêu đề ngôn ngữ",
+  "Close": "Đóng",
+  "Save": "Đồng ý"
 }

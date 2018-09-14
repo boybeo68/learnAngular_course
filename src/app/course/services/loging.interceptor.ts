@@ -10,7 +10,6 @@ export class LogingInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const startDate = Date.now();
     let ok: string;
-    console.log(next.handle(req));
     return next.handle(req).pipe(
       tap(event => ok = event instanceof HttpResponse ? 'done' : '', err => ok = `false ${err}`),
       finalize(() => {

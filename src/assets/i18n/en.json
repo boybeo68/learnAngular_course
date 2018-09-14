@@ -1,4 +1,16 @@
 {
   "Title": "Translation example",
-  "Intro": "Hello I am {{name}} , I am {{age}} years old."
+  "Intro": "Do you really want to switch language to Vietnamese?",
+  "Home": "Home",
+  "Course": "Course",
+  "Login": "Login",
+  "Learn Directive": "Learn Directive",
+  "Learn Language": "Learn Language",
+  "English": "English",
+  "VietNamese": "VietNamese",
+  "Language title": "Language title",
+  "Close": "Close",
+  "Language":"Language",
+  "Save": "Save",
+  "Courses manga": "Courses manga"
 }

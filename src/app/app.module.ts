@@ -3,12 +3,10 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {CourseInterceptor} from './course/services/course.interceptor';
 import {LoadingInterceptor} from './course/services/loading.interceptor';
 import {Ng4LoadingSpinnerModule} from 'ng4-loading-spinner';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import {PopupModule} from 'ng2-opd-popup';
 import {LogingInterceptor} from './course/services/loging.interceptor';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
