@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: 'AIzaSyCnsABoDYUV6LC3wpvGttqAwbqiLlio0B0',
+    authDomain: 'ung-dung-restaurant.firebaseapp.com',
+    databaseURL: 'https://ung-dung-restaurant.firebaseio.com',
+    projectId: 'ung-dung-restaurant',
+    storageBucket: 'ung-dung-restaurant.appspot.com',
+    messagingSenderId: '269583663327'
+  }
 };
 
 /*

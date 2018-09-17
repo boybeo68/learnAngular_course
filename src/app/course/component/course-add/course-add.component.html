@@ -33,9 +33,9 @@
             <span *ngIf="frmCourse.controls['price'].dirty && frmCourse.controls['price'].errors?.required" class="label text-danger">Vui lòng nhập price !</span>
           </div>
           <div class="row justify-content-sm-center">
-            <button  type="submit" class="btn btn-success " role="button">Add</button>
+            <button [disabled]="frmCourse.invalid" type="submit" class="btn btn-success " role="button">Add</button>
             <button class="btn btn-warning ml-2" role="button" (click)="onResetForm()">Reset</button>
-            <button class="btn btn-danger ml-2" role="button" (click)="onBack()">Back</button>
+            <button type="button" class="btn btn-danger ml-2" role="button" (click)="onBack()">Back</button>
           </div>
         </form>
       </div>

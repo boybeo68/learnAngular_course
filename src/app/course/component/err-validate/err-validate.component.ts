@@ -16,12 +16,10 @@ export class ErrValidateComponent implements OnInit {
 
   get message() {
     for (let err in this.control.errors) {
-
       if (this.control.dirty) {
         return this.ErrorMessage(err, this.control.errors[err]);
       }
     }
-    // return 'lỗi rồi ';
   }
 
   public ErrorMessage(err: string, value: any) {

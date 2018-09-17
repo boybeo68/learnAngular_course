@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from '../../course/models/user.class';
 import {Router} from '@angular/router';
+import {AngularFireDatabase} from '@angular/fire/database';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -11,8 +13,11 @@ export class LoginComponent implements OnInit {
 
   public err = 0;
   public user: User;
+  public quans: Observable<any[]>;
 
-  constructor(private  router: Router) {
+  constructor(private  router: Router, db: AngularFireDatabase) {
+    this.quans = db.list('/quanans').valueChanges();
+    console.log(this.quans.subscribe(data => console.log(data)));
   }
 
   ngOnInit() {
@@ -35,6 +40,7 @@ export class LoginComponent implements OnInit {
       this.err = -1;
     }
   }
+
   onLogout() {
     localStorage.removeItem('user');
     this.err = 0;

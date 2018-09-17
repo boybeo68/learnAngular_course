@@ -34,9 +34,9 @@ export class CourseService {
 
   handlerErr(err: HttpErrorResponse) {
     if (err.error instanceof Error) {
-      console.log(`client error ${err.error.message}`);
+      alert(`client error ${err.status} - ${err.error.message}`);
     } else {
-      console.log(`server err ${err.status}-${err.error}`);
+      alert(`server err ${err.status}-${err.error}`);
     }
   }
 }
